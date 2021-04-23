@@ -10,17 +10,35 @@ public class XRLoader : MonoBehaviour
 {
     public bool VREnabled = true;
 
-    public IEnumerator InitXR()
+    bool HasVR()
     {
         List<XRDisplaySubsystemDescriptor> displays = new List<XRDisplaySubsystemDescriptor>();
         SubsystemManager.GetSubsystemDescriptors(displays);
-        Debug.Log("Number of display providers found: " + displays.Count);
-        var sceneNameBase = SceneManager.GetActiveScene().name.Replace(" Loader", "");
 
-        bool vrLoaded = false;
         foreach (var display in displays)
         {
             if (display.id.Contains("MockHMD") || !VREnabled) continue;
+            return true;
+        }
+        return false;
+    }
+
+    public IEnumerator InitXR()
+    {
+        bool vrLoaded = false;
+        var sceneNameBase = SceneManager.GetActiveScene().name.Replace(" Loader", "");
+
+        if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
+            XRGeneralSettings.Instance.Manager.DeinitializeLoader();
+        while (XRGeneralSettings.Instance.Manager.isInitializationComplete) yield return null;
+
+        if (HasVR())
+        {
+
+            List<XRDisplaySubsystemDescriptor> displays = new List<XRDisplaySubsystemDescriptor>();
+            SubsystemManager.GetSubsystemDescriptors(displays);
+            Debug.Log("Number of display providers found: " + displays.Count);
+
 
             Debug.Log("Press V to load into VR, or D to load into desktop mode");
             bool v = false;
@@ -31,29 +49,40 @@ public class XRLoader : MonoBehaviour
                 d = Keyboard.current.dKey.wasReleasedThisFrame;
                 yield return null;
             }
-
-            if (d)
+            Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
+            if (!v) Debug.Log("Skipping into desktop mode");
+            else
             {
-                Debug.Log("Skipping into desktop mode");
-                break;
-            }
+                Debug.Log("VR mode selected");
 
-            Debug.Log("Initializing XR");
-            yield return XRGeneralSettings.Instance.Manager.InitializeLoader();
+                Debug.Log("Initializing XR");
+                yield return XRGeneralSettings.Instance.Manager.InitializeLoader();
+                while (!XRGeneralSettings.Instance.Manager.isInitializationComplete) yield return null;
 
-            Debug.Log("Creating display " + display.id);
-            XRDisplaySubsystem dispInst = display.Create();
+                Debug.Log("Starting XR subsystems");
+                XRGeneralSettings.Instance.Manager.StartSubsystems();
 
-            if (dispInst != null)
-            {
-                Debug.Log("Starting display " + display.id);
-                dispInst.Start();
-                SceneManager.LoadScene(sceneNameBase + " VR", LoadSceneMode.Single);
-                vrLoaded = true;
-                break;
+                foreach (var display in displays)
+                {
+                    if (display.id.Contains("MockHMD") || !VREnabled) continue;
+
+                    Debug.Log("Creating display " + display.id);
+                    XRDisplaySubsystem dispInst = display.Create();
+
+                    if (dispInst != null)
+                    {
+                        Debug.Log("Starting display " + display.id);
+                        dispInst.Start();
+                        while (!dispInst.running) yield return null;
+                        Debug.Log("Loading VR scene");
+                        SceneManager.LoadScene(sceneNameBase + " VR", LoadSceneMode.Single);
+                        vrLoaded = true;
+                        break;
+                    }
+                    else Debug.Log("Display instance is null");
+                }
             }
         }
-
 
         if (!vrLoaded)
         {
@@ -65,5 +94,12 @@ public class XRLoader : MonoBehaviour
     void Start()
     {
         StartCoroutine("InitXR");
+        DontDestroyOnLoad(this);
+    }
+
+    void OnDestroy()
+    {
+        if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
+            XRGeneralSettings.Instance.Manager.DeinitializeLoader();
     }
 }
