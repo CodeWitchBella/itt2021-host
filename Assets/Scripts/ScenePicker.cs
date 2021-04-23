@@ -39,8 +39,8 @@ public class ScenePicker : MonoBehaviour
             bool d = false;
             while (!d && !v)
             {
-                v = Keyboard.current.vKey.wasReleasedThisFrame;
-                d = Keyboard.current.dKey.wasReleasedThisFrame;
+                v = Keyboard.current.vKey.isPressed;
+                d = Keyboard.current.dKey.isPressed;
                 yield return null;
             }
 
