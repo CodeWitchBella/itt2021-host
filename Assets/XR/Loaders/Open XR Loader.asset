@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1251306160, guid: 5173c3ea7f8dbdc47871e62b3e5c7906, type: 3}
-  m_Name: InternalSettings
+  m_Script: {fileID: 11500000, guid: d3552e428dc7646a88de3ed3650f87da, type: 3}
+  m_Name: Open XR Loader
   m_EditorClassIdentifier: 
-  _migration:
-    lastPromptedVersion: 2
-    version: 2
-  _projectGUID: c8417875-c831-4c9b-8e6b-5972f54554a9
