@@ -20,6 +20,11 @@ public class RandomGlitch : MonoBehaviour
                 g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("TestMaterial", typeof(Material));
             }
         }
+        else if (Input.GetKey(KeyCode.F)) {
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
+                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("TestMaterial", typeof(Material));
+            }
+        }
         else {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
                 g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("NormalMaterial", typeof(Material));
