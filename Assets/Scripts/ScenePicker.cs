@@ -24,7 +24,7 @@ public class ScenePicker : MonoBehaviour
         return false;
     }
 
-    public IEnumerator InitXR()
+    public IEnumerator WaitForSelection()
     {
         Debug.Log("Press V to load into VR, or D to load into desktop mode");
         bool v = false;
@@ -44,7 +44,6 @@ public class ScenePicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("InitXR");
+        StartCoroutine("WaitForSelection");
     }
-
 }
