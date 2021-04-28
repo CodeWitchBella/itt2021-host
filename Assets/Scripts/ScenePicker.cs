@@ -15,8 +15,7 @@ public class ScenePicker : MonoBehaviour
         List<XRDisplaySubsystemDescriptor> displays = new List<XRDisplaySubsystemDescriptor>();
         SubsystemManager.GetSubsystemDescriptors(displays);
 
-        foreach (var display in displays)
-        {
+        foreach (var display in displays) {
             if (display.id.Contains("MockHMD") || !VREnabled) continue;
             return true;
         }
@@ -32,13 +31,11 @@ public class ScenePicker : MonoBehaviour
             XRGeneralSettings.Instance.Manager.DeinitializeLoader();
         while (XRGeneralSettings.Instance.Manager.isInitializationComplete) yield return null;
 
-        if (HasVR())
-        {
+        if (HasVR()) {
             Debug.Log("Press V to load into VR, or D to load into desktop mode");
             bool v = false;
             bool d = false;
-            while (!d && !v)
-            {
+            while (!d && !v) {
                 v = Keyboard.current.vKey.isPressed;
                 d = Keyboard.current.dKey.isPressed;
                 yield return null;
@@ -46,8 +43,7 @@ public class ScenePicker : MonoBehaviour
 
             Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
             if (d) Debug.Log("Desktop mode selected");
-            else
-            {
+            else {
                 Debug.Log("VR mode selected");
                 SceneManager.LoadScene(sceneNameBase + " VR", LoadSceneMode.Single);
                 vrLoaded = true;

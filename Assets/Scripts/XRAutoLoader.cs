@@ -26,15 +26,13 @@ public class XRAutoLoader : MonoBehaviour
         Debug.Log("Starting XR subsystems");
         XRGeneralSettings.Instance.Manager.StartSubsystems();
 
-        foreach (var display in displays)
-        {
+        foreach (var display in displays) {
             if (display.id.Contains("MockHMD")) continue;
 
             Debug.Log("Creating display " + display.id);
             XRDisplaySubsystem dispInst = display.Create();
 
-            if (dispInst != null)
-            {
+            if (dispInst != null) {
                 Debug.Log("Starting display " + display.id);
                 dispInst.Start();
                 break;
@@ -46,10 +44,8 @@ public class XRAutoLoader : MonoBehaviour
     void Start()
     {
         // not the first autoloader to be loaded
-        foreach (var o in FindObjectsOfType<XRAutoLoader>())
-        {
-            if (o != this)
-            {
+        foreach (var o in FindObjectsOfType<XRAutoLoader>()) {
+            if (o != this) {
                 Debug.Log("Another");
                 Destroy(this, 0.1f);
                 return;
