@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MP Loader.unity
-    guid: 3c5661b45eac4ab4c984743e382464b8
+    path: Assets/Scenes/1 Loader.unity
+    guid: d4f26ef6cfee8604091be6c711831380
   - enabled: 1
-    path: Assets/Scenes/MP PC.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
-    path: Assets/Scenes/MP VR.unity
-    guid: 9fa9673bd49882c4dbe018dc2ea491a9
+    path: Assets/Scenes/3 Experience.unity
+    guid: 072c6b966118946479e226450608bdc1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b868d74a109491f4aa3fb5a10861bba5, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6c489be4d8e910a46a650000de9acf28, type: 2}

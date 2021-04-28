@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 public class ScenePicker : MonoBehaviour
 {
     public bool VREnabled = true;
+    // we might want to do "2 Timer"
+    public string TargetScene = "3 Experience";
 
     bool HasVR()
     {
@@ -24,34 +26,19 @@ public class ScenePicker : MonoBehaviour
 
     public IEnumerator InitXR()
     {
-        bool vrLoaded = false;
-        var sceneNameBase = SceneManager.GetActiveScene().name.Replace(" Loader", "");
-
-        if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
-            XRGeneralSettings.Instance.Manager.DeinitializeLoader();
-        while (XRGeneralSettings.Instance.Manager.isInitializationComplete) yield return null;
-
-        if (HasVR()) {
-            Debug.Log("Press V to load into VR, or D to load into desktop mode");
-            bool v = false;
-            bool d = false;
-            while (!d && !v) {
-                v = Keyboard.current.vKey.isPressed;
-                d = Keyboard.current.dKey.isPressed;
-                yield return null;
-            }
-
-            Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
-            if (d) Debug.Log("Desktop mode selected");
-            else {
-                Debug.Log("VR mode selected");
-                SceneManager.LoadScene(sceneNameBase + " VR", LoadSceneMode.Single);
-                vrLoaded = true;
-            }
+        Debug.Log("Press V to load into VR, or D to load into desktop mode");
+        bool v = false;
+        bool d = false;
+        while (!d && !v) {
+            v = Keyboard.current.vKey.isPressed;
+            d = Keyboard.current.dKey.isPressed;
+            yield return null;
         }
+        Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
+        VREnabled = v;
 
-        if (!vrLoaded)
-            SceneManager.LoadScene(sceneNameBase + " PC", LoadSceneMode.Single);
+        DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene(TargetScene, LoadSceneMode.Single);
     }
 
     // Start is called before the first frame update
