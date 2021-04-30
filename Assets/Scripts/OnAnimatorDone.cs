@@ -10,6 +10,7 @@ public class OnAnimatorDone : MonoBehaviour
     public UnityAction OnDone;
     public GameObject[] activate;
     public string LoadScene;
+    public bool DeactivateSelf = true;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class OnAnimatorDone : MonoBehaviour
     {
         foreach (var o in activate) {
             o.SetActive(true);
+        }
+        if (DeactivateSelf) {
+            gameObject.SetActive(false);
         }
         if (LoadScene != "") {
             SceneManager.LoadScene(LoadScene, LoadSceneMode.Single);
