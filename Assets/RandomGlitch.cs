@@ -17,12 +17,12 @@ public class RandomGlitch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
-                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("TestMaterial", typeof(Material));
+                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("GlitchMaterial", typeof(Material));
             }
         }
         else if (Input.GetKey(KeyCode.F)) {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
-                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("TestMaterial", typeof(Material));
+                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("DissolveMaterial", typeof(Material));
             }
         }
         else {
