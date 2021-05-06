@@ -296,13 +296,7 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: A2
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: speed
-    m_Type: 1
-    m_DefaultFloat: 2
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -328,6 +322,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e69fb4132804847b5e4b3d8bcbf0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0
+  eventName: Done
+--- !u!114 &279518436879872923
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e69fb4132804847b5e4b3d8bcbf0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 50
+  eventName: AllowMovement
 --- !u!1107 &466852727210290908
 AnimatorStateMachine:
   serializedVersion: 6
@@ -444,18 +454,19 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5289998698003541399}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 279518436879872923}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -4092633118735577736, guid: f1262a581ae3d7149a3ec101bf01eec8, type: 3}
   m_Tag: 
-  m_SpeedParameter: speed
+  m_SpeedParameter: d
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

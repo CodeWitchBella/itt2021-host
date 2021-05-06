@@ -15,21 +15,15 @@ public class VRRecenter : MonoBehaviour
         var pos = -cam.position;
         pos.y = 0;
         transform.position = pos;
-        StartCoroutine("WaitForTrack");
-    }
-
-    IEnumerator WaitForTrack()
-    {
-        //while(driver.)
-        //yield return null;
-        yield return null;
     }
 
     void Update()
     {
-        var pos = -cam.position;
+        var pos = gameObject.transform.position + cam.localPosition;
         pos.y = 0;
-        if (pos.magnitude > 0.25) {
+        if (pos.magnitude > 0.5) {
+            pos = -cam.localPosition;
+            pos.y = 0;
             transform.position = pos;
         }
     }

@@ -202,15 +202,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 428902570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Device: 0
-  m_PoseSource: 2
-  m_PoseProviderComponent: {fileID: 0}
   m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 0
+  m_PositionAction:
+    m_Name: Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 94447855-a7ef-4946-aa2b-7dbf78021b17
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a833fdcc-9030-4a68-99cc-133f4f30eee7
+      m_Path: <XRHMD>/centerEyePosition
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Position
+      m_Flags: 0
+  m_RotationAction:
+    m_Name: Rotation
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 80a01003-4bc9-415e-851b-7fa837edba31
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ec686c02-40a9-4e04-8b83-68d85f12e072
+      m_Path: <XRHMD>/centerEyeRotation
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotation
+      m_Flags: 0
 --- !u!114 &428902573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,6 +712,7 @@ MonoBehaviour:
   - {fileID: 1659362942}
   LoadScene: 
   DeactivateSelf: 1
+  eventName: Done
 --- !u!95 &1561611252
 Animator:
   serializedVersion: 3
@@ -703,6 +732,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1561611253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561611249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18231276fa6a71145ba8a16cefff7a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1606652433
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606652435}
   - component: {fileID: 1606652434}
+  - component: {fileID: 1606652436}
   m_Layer: 0
   m_Name: XRRig
   m_TagString: Untagged
@@ -752,6 +794,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606652436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606652433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ee02e5774609a4f9a4e324a2e7edb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1659362940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,6 +901,7 @@ MonoBehaviour:
   - {fileID: 1816875441}
   LoadScene: 
   DeactivateSelf: 0
+  eventName: AllowMovement
 --- !u!95 &1659362944
 Animator:
   serializedVersion: 3
@@ -866,6 +921,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1659362945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659362942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e09958ae7b9fe478dc757b26824fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activate: []
+  LoadScene: 
+  DeactivateSelf: 1
+  eventName: Done
+--- !u!114 &1659362946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659362942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18231276fa6a71145ba8a16cefff7a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816875441
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cd65d739f33a441a864d237ee009ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseHandler: {fileID: 0}
+  mouseHandler: {fileID: 2321589123224291455}
+  recenter: {fileID: 1606652436}
 --- !u!4 &1816875443
 Transform:
   m_ObjectHideFlags: 0

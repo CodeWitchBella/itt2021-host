@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class OnAnimatorDone : MonoBehaviour
+public class HandleAnimationEvent : MonoBehaviour
 {
     public UnityAction OnDone;
     public GameObject[] activate;
     public string LoadScene;
     public bool DeactivateSelf = true;
+    public string eventName = "Done";
 
     void Start()
     {
@@ -22,8 +23,14 @@ public class OnAnimatorDone : MonoBehaviour
         OnDone -= Handler;
     }
 
+
+    private bool called;
+    public bool wasCalled { get { return called; } }
     private void Handler()
     {
+        if (called) return;
+        called = true;
+
         foreach (var o in activate) {
             o.SetActive(true);
         }
