@@ -13,6 +13,7 @@ public class MouseHandler : MonoBehaviour
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
     private Camera cam;
+    public GameObject tutorial;
     CharacterController characterController;
 
     private bool locked
@@ -37,6 +38,9 @@ public class MouseHandler : MonoBehaviour
         locked = hasFocus;
     }
 
+    private float movementEnabledAt = -1;
+    private bool didMove = false;
+
     void Update()
     {
         if (locked) {
@@ -54,6 +58,10 @@ public class MouseHandler : MonoBehaviour
                 float vertical = Input.GetAxis("Vertical") * MovementSpeed;
                 var tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime;
                 var mag = tr.magnitude;
+                if (mag > 0.01 && !didMove) {
+                    didMove = true;
+                    GameObject.Find("wasd").SetActive(false);
+                }
                 tr.y = 0;
                 tr = tr.normalized;
                 if (tr.sqrMagnitude < 0.001) {
@@ -63,6 +71,12 @@ public class MouseHandler : MonoBehaviour
                 }
                 tr *= mag;
                 characterController.Move(tr);
+                if (movementEnabledAt == -1) {
+                    movementEnabledAt = Time.fixedTime;
+                }
+                if (Time.fixedTime - movementEnabledAt > 3 && !didMove) {
+                    tutorial.SetActive(true);
+                }
             }
         }
         if (Input.GetKey(KeyCode.Escape)) {
@@ -73,4 +87,6 @@ public class MouseHandler : MonoBehaviour
             locked = true;
         }
     }
+
+
 }
