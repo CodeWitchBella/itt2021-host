@@ -28,15 +28,12 @@ public class DesktopPlayerManager : MonoBehaviour
         // Get a reference to the player
         var player = playerGameObject.GetComponent<Normal.Realtime.Examples.HoverbirdPlayer>();
 
-        // Get the constraint used to position the camera behind the player
-        ParentConstraint cameraConstraint = _camera.GetComponent<ParentConstraint>();
+        _camera.transform.parent = player.cameraTarget;
+        _camera.transform.localPosition = Vector3.zero;
+        _camera.transform.localRotation = Quaternion.identity;
 
-        // Add the camera target so the camera follows it
-        ConstraintSource constraintSource = new ConstraintSource { sourceTransform = player.cameraTarget, weight = 1.0f };
-        int constraintIndex = cameraConstraint.AddSource(constraintSource);
-
-        // Set the camera offset so it acts like a third-person camera.
-        cameraConstraint.SetTranslationOffset(constraintIndex, new Vector3(0.0f, 1.0f, -4.0f));
-        cameraConstraint.SetRotationOffset(constraintIndex, new Vector3(15.0f, 0.0f, 0.0f));
+        foreach (var r in playerGameObject.GetComponentsInChildren<MeshRenderer>()) {
+            if (r) r.enabled = false;
+        }
     }
 }

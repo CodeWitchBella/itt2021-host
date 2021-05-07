@@ -80,7 +80,7 @@ public class XRAutoLoader : MonoBehaviour
     {
         var activatable = VREnabled ? ActivateInVR : ActivateForDesktop;
         foreach (var o in activatable) {
-            o.SetActive(true);
+            o?.SetActive(true);
         }
     }
 

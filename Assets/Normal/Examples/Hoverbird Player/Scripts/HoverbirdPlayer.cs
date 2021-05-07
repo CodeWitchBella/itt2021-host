@@ -39,6 +39,8 @@ namespace Normal.Realtime.Examples {
             // Call LocalStart() only if this instance is owned by the local client
             if (_realtimeView.isOwnedLocallyInHierarchy)
                 LocalStart();
+            else
+                GetComponent<MouseHandler>().enabled = false;
         }
 
         private void Update() {
@@ -72,7 +74,7 @@ namespace Normal.Realtime.Examples {
 
         private void LocalFixedUpdate() {
             // Move the player based on the input
-            MovePlayer();
+            // MovePlayer();
 
             // Animate the character to match the player movement
             AnimateCharacter();
