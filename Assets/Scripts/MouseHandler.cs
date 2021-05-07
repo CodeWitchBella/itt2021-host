@@ -12,8 +12,8 @@ public class MouseHandler : MonoBehaviour
     public float MovementSpeed = 1;
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
-    private Camera cam;
-    public GameObject tutorial;
+    private Camera cam = null;
+    public GameObject tutorial = null;
     CharacterController characterController;
 
     private bool locked
@@ -60,7 +60,7 @@ public class MouseHandler : MonoBehaviour
                 var mag = tr.magnitude;
                 if (mag > 0.01 && !didMove) {
                     didMove = true;
-                    GameObject.Find("wasd").SetActive(false);
+                    if (tutorial) tutorial.SetActive(false);
                 }
                 tr.y = 0;
                 tr = tr.normalized;
@@ -75,7 +75,7 @@ public class MouseHandler : MonoBehaviour
                     movementEnabledAt = Time.fixedTime;
                 }
                 if (Time.fixedTime - movementEnabledAt > 3 && !didMove) {
-                    tutorial.SetActive(true);
+                    if (tutorial) tutorial.SetActive(true);
                 }
             }
         }
@@ -87,6 +87,4 @@ public class MouseHandler : MonoBehaviour
             locked = true;
         }
     }
-
-
 }

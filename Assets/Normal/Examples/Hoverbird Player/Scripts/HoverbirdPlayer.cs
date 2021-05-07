@@ -63,13 +63,13 @@ namespace Normal.Realtime.Examples {
 
         private void LocalUpdate() {
             // Move the camera using the mouse
-            RotateCamera();
+            //RotateCamera();
 
             // Use WASD input and the camera look direction to calculate the movement target
-            CalculateTargetMovement();
+            //CalculateTargetMovement();
 
             // Check if we should jump this frame
-            CheckForJump();
+            //CheckForJump();
         }
 
         private void LocalFixedUpdate() {
