@@ -11,6 +11,7 @@ public class HandleAnimationEvent : MonoBehaviour
     public GameObject[] activate;
     public string LoadScene;
     public bool DeactivateSelf = true;
+    public bool HideSelf = false;
     public string eventName = "Done";
 
     void Start()
@@ -36,6 +37,11 @@ public class HandleAnimationEvent : MonoBehaviour
         }
         if (DeactivateSelf) {
             gameObject.SetActive(false);
+        }
+        if (HideSelf) {
+            foreach (var r in GetComponentsInChildren<Renderer>()) {
+                r.enabled = false;
+            }
         }
         if (LoadScene != "") {
             SceneManager.LoadScene(LoadScene, LoadSceneMode.Single);
