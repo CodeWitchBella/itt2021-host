@@ -6,6 +6,8 @@ using UnityEngine;
 public class RandomGlitch : MonoBehaviour
 {
 
+    public double startTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class RandomGlitch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
-                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("GlitchMaterial", typeof(Material));
+                g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("DeformMaterial", typeof(Material));
             }
         }
         else if (Input.GetKey(KeyCode.F)) {
