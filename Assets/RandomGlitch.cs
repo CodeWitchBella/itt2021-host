@@ -7,6 +7,8 @@ public class RandomGlitch : MonoBehaviour
 {
 
     public double startTime;
+    private bool deforming = false;
+    private bool glitching = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +21,19 @@ public class RandomGlitch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
+                //if (deforming) break;
                 g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("DeformMaterial", typeof(Material));
             }
+            deforming = true;
+            glitching = false;
         }
         else if (Input.GetKey(KeyCode.F)) {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
+                if (glitching) break;
                 g.GetComponent<MeshRenderer>().material = (Material)Resources.Load("DissolveMaterial", typeof(Material));
             }
+            glitching = true;
+            deforming = false;
         }
         else {
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Glitchable")) {
