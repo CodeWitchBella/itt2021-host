@@ -273,7 +273,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -651860357187858296, guid: 72296dbbe61ecf34993bc6ae896c5b58, type: 3}
   m_PrefabInstance: {fileID: 646265210}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1094312690
+--- !u!114 &1094312691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c542f63e0df5435488c43fdb39e076ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glitchStartTime1: 1
+  glitchStartTime1: 2
   glitchDuration: 1
 --- !u!1 &1582304172
 GameObject:
