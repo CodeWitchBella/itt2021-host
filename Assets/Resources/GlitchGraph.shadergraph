@@ -4,7 +4,7 @@
     "m_ObjectId": "efde74f5f0544b0e89695d34ec9d01df",
     "m_Properties": [
         {
-            "m_Id": "bf48e4527b49494a8e446e6e41260ced"
+            "m_Id": "742f3cd5b72f4f77987e3bc1d1fe2cfa"
         }
     ],
     "m_Keywords": [],
@@ -155,6 +155,9 @@
         },
         {
             "m_Id": "6851791aaf4f4dcc8a2d01a8103693ff"
+        },
+        {
+            "m_Id": "0f5f6b2ccb1f41438f0059b6d58defef"
         }
     ],
     "m_GroupDatas": [
@@ -199,6 +202,20 @@
                     "m_Id": "93bf1a1de68148e6ad1d06e177dd6007"
                 },
                 "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "0f5f6b2ccb1f41438f0059b6d58defef"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "b09f3b59f93344788f6975205485d259"
+                },
+                "m_SlotId": 0
             }
         },
         {
@@ -1115,6 +1132,41 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "0f5f6b2ccb1f41438f0059b6d58defef",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -399.0000915527344,
+            "y": 155.00001525878907,
+            "width": 107.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "5cf6fc9005fe4075aece51a4a0f2e12c"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "742f3cd5b72f4f77987e3bc1d1fe2cfa"
+    }
 }
 
 {
@@ -2438,6 +2490,31 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "5cf6fc9005fe4075aece51a4a0f2e12c",
+    "m_Id": 0,
+    "m_DisplayName": "Color",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.RemapNode",
     "m_ObjectId": "5e60fc471dd44c00beb1a500aeaf2710",
     "m_Group": {
@@ -2933,6 +3010,30 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "742f3cd5b72f4f77987e3bc1d1fe2cfa",
+    "m_Guid": {
+        "m_GuidSerialized": "fc3b574e-6a98-48a8-863f-124249c4c2f6"
+    },
+    "m_Name": "Color",
+    "m_DefaultReferenceName": "Color_742f3cd5b72f4f77987e3bc1d1fe2cfa",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "m_ColorMode": 0
 }
 
 {
@@ -4499,29 +4600,6 @@
     },
     "m_Labels": [],
     "m_Channel": 0
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "bf48e4527b49494a8e446e6e41260ced",
-    "m_Guid": {
-        "m_GuidSerialized": "c3aa07d5-8d01-43d9-b9b2-40d437a451ac"
-    },
-    "m_Name": "MainTexture",
-    "m_DefaultReferenceName": "Texture2D_bf48e4527b49494a8e446e6e41260ced",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
-        "m_Guid": ""
-    },
-    "m_Modifiable": true,
-    "m_DefaultType": 0
 }
 
 {
