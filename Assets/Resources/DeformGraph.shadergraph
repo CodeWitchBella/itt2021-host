@@ -256,6 +256,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "3b10791b362a47298341544d34539451"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "86e2252eb2a44a5480f38c7627cfc734"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "559eef75e52441d8b9d3951603dc6d74"
                 },
                 "m_SlotId": 3
@@ -333,20 +347,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "e043a9dd9aa6493b9858f11326f613c6"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "6aa63c50a79c4623ab783b0ffd1d6983"
-                },
-                "m_SlotId": 1
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "bcfba30cb04141d69af7ec242a82b860"
                 },
                 "m_SlotId": 0
             }
@@ -473,6 +473,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "352fe4d0c9d34a2fbf91ee10d47b9129"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "b7b2bb89f37c43acadef14c8ec733846"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "bcfba30cb04141d69af7ec242a82b860"
                 },
                 "m_SlotId": 0
             }
@@ -1807,7 +1821,7 @@
     "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 3.0,
+        "x": 5.0,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -1925,7 +1939,7 @@
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
-        "y": 0.4000000059604645
+        "y": 1.0
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -2408,7 +2422,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2
+    "m_Space": 0
 }
 
 {
