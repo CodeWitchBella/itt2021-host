@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Leave3Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 2f5354bba037164418445ec8907d7b51, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c85dd8f13bab1024bba8b6cff0364770, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 0
+    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 323
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
