@@ -26,14 +26,16 @@ public class DesktopPlayerManager : MonoBehaviour
                                                                         useInstance: realtime);          // Use the instance of Realtime that fired the didConnectToRoom event.
 
         // Get a reference to the player
-        var player = playerGameObject.GetComponent<Normal.Realtime.Examples.HoverbirdPlayer>();
+        var dataHolder = playerGameObject.GetComponent<MultiplayerDesktopPlayerDataHolder>();
 
-        _camera.transform.parent = player.cameraTarget;
+        _camera.transform.parent = dataHolder.CameraTarget.transform;
         _camera.transform.localPosition = Vector3.zero;
         _camera.transform.localRotation = Quaternion.identity;
 
-        foreach (var r in playerGameObject.GetComponentsInChildren<MeshRenderer>()) {
+        foreach (var r in playerGameObject.GetComponentsInChildren<SkinnedMeshRenderer>()) {
             if (r) r.enabled = false;
         }
+
+        if (dataHolder.MouseHandler) dataHolder.MouseHandler.enabled = true;
     }
 }

@@ -14,6 +14,8 @@ public class MouseHandler : MonoBehaviour
     private float yRotation = 0.0f;
     private Camera cam = null;
     public GameObject tutorial = null;
+    public Transform xTransform = null;
+    public Transform yTransform = null;
     CharacterController characterController;
 
     private bool locked
@@ -31,6 +33,8 @@ public class MouseHandler : MonoBehaviour
         cam = FindObjectOfType<Camera>();
         characterController = GetComponent<CharacterController>();
         locked = true;
+        if (xTransform == null) xTransform = cam.transform;
+        if (yTransform == null) yTransform = cam.transform;
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -51,7 +55,8 @@ public class MouseHandler : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-            cam.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+            xTransform.eulerAngles = new Vector3(xTransform.eulerAngles.x, yRotation, 0.0f);
+            yTransform.eulerAngles = new Vector3(xRotation, xTransform.eulerAngles.y, 0.0f);
 
             if (movementEnabled) {
                 float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
