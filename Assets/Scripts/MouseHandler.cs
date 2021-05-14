@@ -86,11 +86,13 @@ public class MouseHandler : MonoBehaviour
         }
         tr *= mag;
         characterController.Move(tr);
-        if (movementEnabledAt == -1) {
-            movementEnabledAt = Time.fixedTime;
-        }
-        if (Time.fixedTime - movementEnabledAt > 3 && !didMove) {
-            if (tutorial) tutorial.SetActive(true);
+        if (movementEnabled) {
+            if (movementEnabledAt == -1) {
+                movementEnabledAt = Time.fixedTime;
+            }
+            if (Time.fixedTime - movementEnabledAt > 3 && !didMove) {
+                if (tutorial) tutorial.SetActive(true);
+            }
         }
         preserver.transform.localPosition = transform.localPosition;
         preserver.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
