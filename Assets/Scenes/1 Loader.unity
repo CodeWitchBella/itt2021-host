@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VREnabled: 1
-  TargetScene: 2 Timer
+  TargetScene: Scene 2
 --- !u!4 &265394777
 Transform:
   m_ObjectHideFlags: 0

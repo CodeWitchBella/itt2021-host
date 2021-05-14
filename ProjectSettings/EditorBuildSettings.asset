@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/1 Loader.unity
     guid: d4f26ef6cfee8604091be6c711831380
   - enabled: 1
-    path: Assets/Scenes/2 Timer.unity
-    guid: 0d3bde5213e51e3479726a4820ebe928
+    path: Assets/Scenes/Scene 2.unity
+    guid: ec47ce37421f09842b148f7758091fbb
   - enabled: 1
     path: Assets/Scenes/3 Experience.unity
     guid: 072c6b966118946479e226450608bdc1

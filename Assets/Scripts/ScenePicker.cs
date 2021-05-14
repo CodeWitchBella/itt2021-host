@@ -10,7 +10,7 @@ public class ScenePicker : MonoBehaviour
 {
     public bool VREnabled = true;
     // we might want to do "2 Timer"
-    public string TargetScene = "3 Experience";
+    public string TargetScene = "Scene 2";
 
     bool HasVR()
     {

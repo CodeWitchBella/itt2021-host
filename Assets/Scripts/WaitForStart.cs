@@ -35,6 +35,7 @@ public class WaitForStart : MonoBehaviour
                     yield return new WaitForSeconds(5);
                     break;
                 } else {
+                    Debug.Log(www.downloadHandler.text);
                     int time;
                     if (int.TryParse(www.downloadHandler.text, out time)) timeRemaining = time;
                     if (timeRemaining <= 0) break;
@@ -56,8 +57,15 @@ public class WaitForStart : MonoBehaviour
     void DisplayTime(int timeRemaining)
     {
         if (timeRemaining < 60) {
-            tmp.SetText(origText + "Time remaining: " + timeRemaining + " seconds");
+            tmp.SetText(origText + "Time remaining: " + timeRemaining + " second" + (timeRemaining > 1 ? "s" : ""));
             return;
         }
+        if (timeRemaining < 60) {
+            timeRemaining /= 60;
+            tmp.SetText(origText + "Time remaining: " + timeRemaining + " minute" + (timeRemaining > 1 ? "s" : ""));
+            return;
+        }
+        timeRemaining /= 60;
+        tmp.SetText(origText + "Time remaining: " + timeRemaining + " hour" + (timeRemaining > 1 ? "s" : ""));
     }
 }
