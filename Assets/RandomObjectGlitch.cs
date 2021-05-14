@@ -9,7 +9,7 @@ public class RandomObjectGlitch : MonoBehaviour
     public float glitchStartTime1 = 20;
     public float deformTime = 320.0f;
     public float glitchDuration = 0.3f;
-    private float deformDuration = 3;
+    private float deformDuration = 8;
 
     private float glitchStartTime2;
     private float glitchStartTime3;
@@ -135,9 +135,9 @@ public class RandomObjectGlitch : MonoBehaviour
             this.objectRenderer.material = (Material)Resources.Load("Materials/" + materialName, typeof(Material));
             glitching = false;
         }
-        if (currentTime - deformTime >= deformDuration && deformTime >= 1) {
+        if (currentTime >= deformTime + deformDuration && deformTime >= 1) {
             //Debug.Log("Destroying: " + this.ToString());
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
