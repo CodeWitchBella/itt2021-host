@@ -7,6 +7,10 @@ public class RandomObjectGlitch : MonoBehaviour
     // Start is called before the first frame update
     private float currentTime;
     public float glitchStartTime1 = 20;
+    public float deformTime = 320.0f;
+    public float glitchDuration = 0.3f;
+    private float deformDuration = 3;
+
     private float glitchStartTime2;
     private float glitchStartTime3;
     private float glitchStartTime4;
@@ -16,8 +20,6 @@ public class RandomObjectGlitch : MonoBehaviour
     private float glitchStartTime8;
     private float glitchStartTime9;
     private float glitchStartTime10;
-    public float deformTime = 320.0f;
-    public float glitchDuration = 0.3f;
 
     private float recentGlitchTime;
     private bool glitching;
@@ -128,12 +130,12 @@ public class RandomObjectGlitch : MonoBehaviour
             deforming = true;
             deformTime = currentTime;
         }
-        else if (currentTime >= recentGlitchTime + glitchDuration && glitching && !deforming && currentTime >=1) {
+        else if (currentTime >= recentGlitchTime + glitchDuration && glitching && !deforming && currentTime >=1) { //mozne vymazat + glitchduration
             //Debug.Log("switchign to original at: " + currentTime);
             this.objectRenderer.material = (Material)Resources.Load("Materials/" + materialName, typeof(Material));
             glitching = false;
         }
-        if (currentTime - deformTime >= 3 && deformTime >= 1) {
+        if (currentTime - deformTime >= deformDuration && deformTime >= 1) {
             //Debug.Log("Destroying: " + this.ToString());
             Destroy(this);
         }
