@@ -9,7 +9,7 @@ public class HandleAnimationEvent : MonoBehaviour
 {
     public UnityAction OnDone;
     public GameObject[] activate;
-    public string LoadScene;
+    public bool LoadMultiplayer = false;
     public bool DeactivateSelf = true;
     public bool HideSelf = false;
     public string eventName = "Done";
@@ -43,8 +43,10 @@ public class HandleAnimationEvent : MonoBehaviour
                 r.enabled = false;
             }
         }
-        if (LoadScene != "") {
-            SceneManager.LoadScene(LoadScene, LoadSceneMode.Single);
+        if (LoadMultiplayer) {
+            var mult = FindObjectOfType<SkipToMultiplayer>();
+            if (mult) mult.LoadMultiplayer();
+            else SceneManager.LoadScene("4 Multiplayer", LoadSceneMode.Single);
         }
     }
 }
