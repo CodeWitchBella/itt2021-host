@@ -28,14 +28,17 @@ public class DesktopPlayerManager : MonoBehaviour
         // Get a reference to the player
         var dataHolder = playerGameObject.GetComponent<MultiplayerDesktopPlayerDataHolder>();
 
-        _camera.transform.parent = dataHolder.CameraTarget.transform;
-        _camera.transform.localPosition = Vector3.zero;
-        _camera.transform.localRotation = Quaternion.identity;
-
         foreach (var r in playerGameObject.GetComponentsInChildren<SkinnedMeshRenderer>()) {
             if (r) r.enabled = false;
         }
 
         if (dataHolder.MouseHandler) dataHolder.MouseHandler.enabled = true;
+
+        dataHolder.MouseHandler.transform.position = _camera.transform.position;
+        dataHolder.MouseHandler.transform.rotation = _camera.transform.rotation;
+        _camera.transform.parent = dataHolder.CameraTarget.transform;
+        _camera.transform.localPosition = Vector3.zero;
+        _camera.transform.localRotation = Quaternion.identity;
+
     }
 }
