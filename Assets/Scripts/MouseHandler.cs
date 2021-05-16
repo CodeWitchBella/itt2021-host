@@ -17,6 +17,7 @@ public class MouseHandler : MonoBehaviour
     public Transform xTransform = null;
     public Transform yTransform = null;
     CharacterController characterController;
+    private float speedMultiplier = 1;
 
     private bool locked
     {
@@ -32,6 +33,7 @@ public class MouseHandler : MonoBehaviour
 
     void Start()
     {
+        speedMultiplier = AnimatorDebugger.GetSpeed();
         cam = FindObjectOfType<Camera>();
         characterController = GetComponent<CharacterController>();
         locked = true;
@@ -71,7 +73,7 @@ public class MouseHandler : MonoBehaviour
         float horizontal = movementEnabled ? Input.GetAxis("Horizontal") * MovementSpeed : 0;
         float vertical = movementEnabled ? Input.GetAxis("Vertical") * MovementSpeed : 0;
 
-        var tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime;
+        var tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime * speedMultiplier;
         var mag = tr.magnitude;
         if (mag > 0.01 && !didMove) {
             didMove = true;
@@ -80,7 +82,7 @@ public class MouseHandler : MonoBehaviour
         tr.y = 0;
         tr = tr.normalized;
         if (tr.sqrMagnitude < 0.001) {
-            tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.up * vertical) * Time.deltaTime;
+            tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.up * vertical) * Time.deltaTime * speedMultiplier;
             tr.y = 0;
             tr = tr.normalized;
         }

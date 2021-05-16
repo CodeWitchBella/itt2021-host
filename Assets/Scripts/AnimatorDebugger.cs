@@ -8,20 +8,30 @@ public class AnimatorDebugger : MonoBehaviour
 {
     private float speed;
     Animator animator;
-    void Start()
+
+    public static float GetSpeed()
     {
         if (Application.isEditor) {
-            animator = GetComponent<Animator>();
-
             // If you want to load speed up animations in editor just add
             // speed.txt with one line to Assets
             var file = Application.dataPath + "/speed.txt";
             if (System.IO.File.Exists(file)) {
                 var lines = System.IO.File.ReadAllLines(file);
+                float speed;
                 if (float.TryParse(lines[0], out speed)) {
-                    if (animator) animator.speed = speed;
+                    return speed;
                 }
             }
+        }
+        return 1;
+    }
+
+    void Start()
+    {
+        if (Application.isEditor) {
+            animator = GetComponent<Animator>();
+            speed = GetSpeed();
+            if (animator) animator.speed = speed;
         } else {
             Destroy(this);
         }
