@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Leave2Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 4a1d368e0546ff04c9c493fd7f2b6d68, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 844e65c9a07e5bc4faf0eee3bd8128ca, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

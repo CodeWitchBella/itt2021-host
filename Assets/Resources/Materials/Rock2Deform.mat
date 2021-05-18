@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rock2Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 34c856ff41b133941aebd71551ed0d02, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 837c482a2b36d0c4797a991431cc8480, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

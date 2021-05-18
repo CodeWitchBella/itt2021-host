@@ -14,7 +14,7 @@ public class ObjectGlitch : MonoBehaviour
 
     public float deformStartTime = 320.0f;
     public float glitchDuration = 0.3f;
-    private float deformDuration = 8;
+    public float deformDuration = 70;
 
     private bool glitching;
     private bool deforming;
@@ -74,7 +74,7 @@ public class ObjectGlitch : MonoBehaviour
             this.objectRenderer.material = (Material)Resources.Load("Materials/" + materialName, typeof(Material));
             glitching = false;
         }
-        if (currentTime >= deformStartTime + deformDuration && deformStartTime >= 1) {
+        if (currentTime >= deformStartTime + deformDuration && deformStartTime >= 1 && deforming) {
             //Debug.Log("Destroying: " + this.ToString());
             Destroy(gameObject);
         }

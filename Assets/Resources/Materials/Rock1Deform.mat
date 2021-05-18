@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rock1Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 4c78e978d3689c647a57e575b0fe6208, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d5050e4e521f45a499a2e3f1149d7713, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -89,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 305
+    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 6
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

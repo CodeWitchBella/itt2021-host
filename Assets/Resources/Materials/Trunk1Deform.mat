@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trunk1Deform
-  m_Shader: {fileID: -6465566751694194690, guid: b01f93adb426df447a478f9ca753ae0b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 7fecf8340aa9f21418b0505e48c600af, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stump2Deform
-  m_Shader: {fileID: -6465566751694194690, guid: edfc6e98329a1a6419ce923584c3e53d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c0e4647e5a25ece4f9f95c95dab73acd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

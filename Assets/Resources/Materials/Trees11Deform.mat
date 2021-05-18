@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trees11Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 306a3ff89d2c09548b0bc54f5a8fec7d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 8c2b4578c768fd349ab7542112268d93, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -89,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 322
+    - Vector1_cb3e8dab327b4c489d306b1ec6572802: 205
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
