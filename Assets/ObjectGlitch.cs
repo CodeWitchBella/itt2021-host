@@ -14,7 +14,7 @@ public class ObjectGlitch : MonoBehaviour
 
     public float deformStartTime = 320.0f;
     public float glitchDuration = 0.3f;
-    public float deformDuration = 70;
+    private float deformDuration = 70;
 
     private bool glitching;
     private bool deforming;

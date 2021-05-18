@@ -9,7 +9,7 @@ public class RandomObjectGlitch : MonoBehaviour
     public float glitchStartTime1 = 20;
     public float deformTime = 1000.0f;
     public float glitchDuration = 0.3f;
-    public float deformDuration = 30;
+    private float deformDuration = 30;
 
     private float glitchStartTime2;
     private float glitchStartTime3;
