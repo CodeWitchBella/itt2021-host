@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4 Multiplayer.unity
     guid: 2e0fd7423df0e3b43aea670cdfd4ff52
+  - enabled: 1
+    path: Assets/Scenes/5 Credits.unity
+    guid: 5acf2b85062678e4c83cf22caff65f43
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b868d74a109491f4aa3fb5a10861bba5, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6c489be4d8e910a46a650000de9acf28, type: 2}

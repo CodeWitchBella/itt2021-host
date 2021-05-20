@@ -7,18 +7,36 @@ using UnityEngine.SceneManagement;
 
 public class WaitForStart : MonoBehaviour
 {
-    TextMeshPro tmp;
+    TextMeshPro textMesh;
     public string TargetScene = "3 Experience";
+    public string Key = "Experience";
     string origText;
 
     void Start()
     {
-        tmp = GetComponent<TextMeshPro>();
-        if (!tmp) SceneManager.LoadScene(TargetScene, LoadSceneMode.Single);
-        else {
-            StartCoroutine(GetTime());
-            origText = tmp.text;
+        textMesh = GetComponent<TextMeshPro>();
+
+        StartCoroutine(GetTime());
+        if (textMesh) {
+            origText = textMesh.text;
         }
+    }
+
+    static bool ParseTime(string text, string key, out int outTime)
+    {
+        Debug.Log(text);
+        Debug.Log(key);
+        foreach (var line in text.Split('\n')) {
+            if (line.StartsWith(key + ": ")) {
+                if (int.TryParse(line.Replace(key + ":", "").Trim(), out outTime)) {
+                    Debug.Log(outTime);
+                    return true;
+                }
+            }
+        }
+        Debug.Log("fail");
+        outTime = -1;
+        return false;
     }
 
     IEnumerator GetTime()
@@ -31,13 +49,14 @@ public class WaitForStart : MonoBehaviour
                 yield return www.SendWebRequest();
                 if (www.result != UnityWebRequest.Result.Success && timeRemaining < 0) {
                     Debug.Log(www.error);
-                    tmp.SetText(origText + "Failed to check for experience start time. Starting anyway but the experience may be incomplete.");
+                    Debug.Log("Failed to check for experience start time. Starting anyway but the experience may be incomplete.");
+                    textMesh?.SetText(origText + "Failed to check for experience start time. Starting anyway but the experience may be incomplete.");
                     yield return new WaitForSeconds(5);
                     break;
                 } else {
                     Debug.Log(www.downloadHandler.text);
                     int time;
-                    if (int.TryParse(www.downloadHandler.text, out time)) timeRemaining = time;
+                    if (ParseTime(www.downloadHandler.text, Key, out time)) timeRemaining = time;
                     if (timeRemaining <= 0) break;
                     for (int i = 0; i < 5; i++) {
                         DisplayTime(timeRemaining);
@@ -56,16 +75,17 @@ public class WaitForStart : MonoBehaviour
 
     void DisplayTime(int timeRemaining)
     {
+        if (!textMesh) return;
         if (timeRemaining < 60) {
-            tmp.SetText(origText + "Time remaining: " + timeRemaining + " second" + (timeRemaining > 1 ? "s" : ""));
+            textMesh.SetText(origText + "Time remaining: " + timeRemaining + " second" + (timeRemaining > 1 ? "s" : ""));
             return;
         }
         if (timeRemaining < 60) {
             timeRemaining /= 60;
-            tmp.SetText(origText + "Time remaining: " + timeRemaining + " minute" + (timeRemaining > 1 ? "s" : ""));
+            textMesh.SetText(origText + "Time remaining: " + timeRemaining + " minute" + (timeRemaining > 1 ? "s" : ""));
             return;
         }
         timeRemaining /= 60;
-        tmp.SetText(origText + "Time remaining: " + timeRemaining + " hour" + (timeRemaining > 1 ? "s" : ""));
+        textMesh.SetText(origText + "Time remaining: " + timeRemaining + " hour" + (timeRemaining > 1 ? "s" : ""));
     }
 }
