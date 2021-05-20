@@ -117,6 +117,8 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 5999792203432038810}
+  - componentID: 2
+    component: {fileID: 2722263078696001173}
   _childViews: []
 --- !u!114 &5999792203432038810
 MonoBehaviour:
@@ -136,6 +138,18 @@ MonoBehaviour:
   _syncScale: 1
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
+--- !u!114 &2722263078696001173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157215140529284145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4ff7916cbc1db4dae0b06d829ff79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6267176139253920899
 GameObject:
   m_ObjectHideFlags: 0
