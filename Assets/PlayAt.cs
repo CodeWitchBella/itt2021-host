@@ -17,7 +17,7 @@ public class PlayAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= playTime && !playing) {
+        if (Time.timeSinceLevelLoad >= playTime && !playing) {
             asrc.Play();
             playing = true;
         }

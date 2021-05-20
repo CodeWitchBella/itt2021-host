@@ -16,7 +16,7 @@ public class MoveTexture : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float slideAmount = Time.time * slideSpeed;
+        float slideAmount = Time.timeSinceLevelLoad * slideSpeed;
         rend.material.SetTextureOffset("_BaseMap", new Vector2(0, slideAmount));
     }
 }
