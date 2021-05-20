@@ -46,6 +46,12 @@ public class MouseHandler : MonoBehaviour
             var preserverObj = new GameObject("PlayerPositionPreserver");
             preserver = preserverObj.AddComponent<PlayerPositionPreserver>();
         }
+        foreach (var o in FindObjectsOfType<Normal.Realtime.RealtimeTransform>()) {
+            o.RequestOwnership();
+        }
+        foreach (var o in FindObjectsOfType<Normal.Realtime.RealtimeView>()) {
+            o.RequestOwnership();
+        }
     }
 
     void OnApplicationFocus(bool hasFocus)
