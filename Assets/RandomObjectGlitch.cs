@@ -64,7 +64,7 @@ public class RandomObjectGlitch : MonoBehaviour
     void Update()
     {
         //Debug.Log("Update");
-        currentTime = Time.timeSinceLevelLoad;
+        currentTime = Time.time - Time.timeSinceLevelLoad;
 
 
         if (currentTime >= glitchStartTime1 && currentTime < glitchStartTime1 + glitchDuration && !glitching && !deforming) {
