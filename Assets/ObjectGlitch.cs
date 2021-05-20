@@ -23,7 +23,7 @@ public class ObjectGlitch : MonoBehaviour
     private string materialName;
     private Renderer objectRenderer;
     void Start() {
-
+        Time.timeScale = 3;
         objectRenderer = GetComponent<Renderer>();
 
         materialName = objectRenderer.material.ToString().Split(' ')[0];
