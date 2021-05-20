@@ -24,17 +24,14 @@ public class WaitForStart : MonoBehaviour
 
     static bool ParseTime(string text, string key, out int outTime)
     {
-        Debug.Log(text);
-        Debug.Log(key);
         foreach (var line in text.Split('\n')) {
             if (line.StartsWith(key + ": ")) {
                 if (int.TryParse(line.Replace(key + ":", "").Trim(), out outTime)) {
-                    Debug.Log(outTime);
                     return true;
                 }
             }
         }
-        Debug.Log("fail");
+        Debug.Log("parse fail " + key + "\n" + text);
         outTime = -1;
         return false;
     }
@@ -54,7 +51,6 @@ public class WaitForStart : MonoBehaviour
                     yield return new WaitForSeconds(5);
                     break;
                 } else {
-                    Debug.Log(www.downloadHandler.text);
                     int time;
                     if (ParseTime(www.downloadHandler.text, Key, out time)) timeRemaining = time;
                     if (timeRemaining <= 0) break;
