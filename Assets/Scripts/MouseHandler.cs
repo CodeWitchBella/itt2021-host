@@ -16,7 +16,6 @@ public class MouseHandler : MonoBehaviour
     public GameObject tutorial = null;
     public Transform xTransform = null;
     public Transform yTransform = null;
-    CharacterController characterController;
     private float speedMultiplier = 1;
 
     private bool locked
@@ -35,7 +34,6 @@ public class MouseHandler : MonoBehaviour
     {
         speedMultiplier = AnimatorDebugger.GetSpeed();
         cam = FindObjectOfType<Camera>();
-        characterController = GetComponent<CharacterController>();
         locked = true;
         if (xTransform == null) xTransform = cam.transform;
         if (yTransform == null) yTransform = cam.transform;
@@ -87,7 +85,9 @@ public class MouseHandler : MonoBehaviour
             tr = tr.normalized;
         }
         tr *= mag;
-        characterController.Move(tr);
+        tr += transform.localPosition;
+        tr.y = 0;
+        transform.localPosition = tr;
         if (movementEnabled) {
             if (movementEnabledAt == -1) {
                 movementEnabledAt = Time.fixedTime;
