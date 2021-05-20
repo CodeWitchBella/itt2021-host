@@ -28,7 +28,7 @@ public class ObjectGlitch : MonoBehaviour
 
         materialName = objectRenderer.material.ToString().Split(' ')[0];
 
-        sceneStartTime = Time.time;
+        sceneStartTime = Time.time - Time.timeSinceLevelLoad;
         //this.objectRenderer.material.SetFloat("", Time.time);
 
 
