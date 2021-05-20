@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trunk1Deform
-  m_Shader: {fileID: -6465566751694194690, guid: 7fecf8340aa9f21418b0505e48c600af, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 363c48b4b6af66d44a96a7955eaf543c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,6 +76,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_abdb721e2e5743a98d143cd2dea20289: 0
+    - Vector1_b84a8ec4f92a4a27996e9d0dde3935bc: 0
     - Vector1_cb3e8dab327b4c489d306b1ec6572802: 322
     - _AlphaClip: 0
     - _Blend: 0
