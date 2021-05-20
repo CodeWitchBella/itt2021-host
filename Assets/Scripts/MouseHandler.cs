@@ -10,7 +10,7 @@ public class MouseHandler : MonoBehaviour
     public float MovementSpeed = 2;
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
-    private Camera cam = null;
+    private Transform cam = null;
     public GameObject tutorial = null;
     public Transform xTransform = null;
     public Transform yTransform = null;
@@ -31,15 +31,16 @@ public class MouseHandler : MonoBehaviour
     void Start()
     {
         speedMultiplier = AnimatorDebugger.GetSpeed();
-        cam = FindObjectOfType<Camera>();
+        cam = FindObjectOfType<Camera>().transform;
         locked = true;
-        if (xTransform == null) xTransform = cam.transform;
-        if (yTransform == null) yTransform = cam.transform;
+        if (xTransform == null) xTransform = cam;
+        if (yTransform == null) yTransform = cam;
         preserver = FindObjectOfType<PlayerPositionPreserver>();
         if (preserver) {
             xRotation = preserver.transform.eulerAngles.x;
             yRotation = preserver.transform.eulerAngles.y;
             transform.position = preserver.transform.position;
+            preserver = null;
         } else {
             var preserverObj = new GameObject("PlayerPositionPreserver");
             preserver = preserverObj.AddComponent<PlayerPositionPreserver>();
@@ -95,7 +96,7 @@ public class MouseHandler : MonoBehaviour
         horizontal *= MovementSpeed;
         vertical *= MovementSpeed;
 
-        var tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime * speedMultiplier;
+        var tr = cam.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime * speedMultiplier;
         var mag = tr.magnitude;
         if (mag > 0.01 && !didMove) {
             didMove = true;
@@ -104,7 +105,7 @@ public class MouseHandler : MonoBehaviour
         tr.y = 0;
         tr = tr.normalized;
         if (tr.sqrMagnitude < 0.001) {
-            tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.up * vertical) * Time.deltaTime * speedMultiplier;
+            tr = cam.rotation * (Vector3.right * horizontal + Vector3.up * vertical) * Time.deltaTime * speedMultiplier;
             tr.y = 0;
             tr = tr.normalized;
         }
@@ -120,8 +121,10 @@ public class MouseHandler : MonoBehaviour
                 if (tutorial) tutorial.SetActive(true);
             }
         }
-        preserver.transform.localPosition = transform.localPosition;
-        preserver.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+        if (preserver) {
+            preserver.transform.localPosition = transform.localPosition;
+            preserver.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+        }
 
         if (Input.GetKey(KeyCode.Escape)) {
             locked = false;
