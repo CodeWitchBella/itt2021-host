@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseHandler : MonoBehaviour
 {
-    // horizontal rotation speed
-    public float horizontalSpeed = 1f;
-    // vertical rotation speed
-    public float verticalSpeed = 1f;
+    private float mouseSpeed = 0.125f;
     public bool movementEnabled = false;
     public float MovementSpeed = 2;
     private float xRotation = 0.0f;
@@ -62,10 +60,27 @@ public class MouseHandler : MonoBehaviour
     private float movementEnabledAt = -1;
     private bool didMove = false;
 
+    float GetHorizontal()
+    {
+        var k = Keyboard.current;
+        if (k == null) return 0;
+        return (k.dKey.isPressed ? 1 : 0) + (k.aKey.isPressed ? -1 : 0) + (k.leftArrowKey.isPressed ? -1 : 0) + (k.rightArrowKey.isPressed ? 1 : 0);
+    }
+    float GetVertical()
+    {
+        var k = Keyboard.current;
+        if (k == null) return 0;
+        return (k.wKey.isPressed ? 1 : 0) + (k.sKey.isPressed ? -1 : 0) + (k.downArrowKey.isPressed ? -1 : 0) + (k.upArrowKey.isPressed ? 1 : 0);
+    }
+
     void Update()
     {
-        float mouseX = locked ? Input.GetAxis("Mouse X") * horizontalSpeed : 0;
-        float mouseY = locked ? Input.GetAxis("Mouse Y") * verticalSpeed : 0;
+        var c = Gamepad.current;
+        var m = Mouse.current;
+        var rightStick = (c?.rightStick.ReadValue() ?? Vector2.zero) * 0.75f + (m?.delta.ReadValue() ?? Vector2.zero) * mouseSpeed;
+        var leftStick = c?.leftStick.ReadValue() ?? Vector2.zero;
+        float mouseX = locked ? rightStick.x : 0;
+        float mouseY = locked ? rightStick.y : 0;
 
         yRotation += mouseX;
         xRotation -= mouseY;
@@ -74,8 +89,11 @@ public class MouseHandler : MonoBehaviour
         xTransform.eulerAngles = new Vector3(xTransform.eulerAngles.x, yRotation, 0.0f);
         yTransform.eulerAngles = new Vector3(xRotation, xTransform.eulerAngles.y, 0.0f);
 
-        float horizontal = movementEnabled ? Input.GetAxis("Horizontal") * MovementSpeed : 0;
-        float vertical = movementEnabled ? Input.GetAxis("Vertical") * MovementSpeed : 0;
+
+        float horizontal = movementEnabled ? GetHorizontal() + leftStick.x : 0;
+        float vertical = movementEnabled ? GetVertical() + leftStick.y : 0;
+        horizontal *= MovementSpeed;
+        vertical *= MovementSpeed;
 
         var tr = cam.transform.rotation * (Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime * speedMultiplier;
         var mag = tr.magnitude;
