@@ -28,7 +28,8 @@ public class ScenePicker : MonoBehaviour
     {
         Debug.Log("Press V to load into VR, or D to load into desktop mode");
         bool v = false;
-        bool d = false;
+        bool canHaveVR = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor;
+        bool d = !canHaveVR;
         while (!d && !v) {
             v = Keyboard.current.vKey.isPressed;
             d = Keyboard.current.dKey.isPressed;
