@@ -9,7 +9,7 @@ public class MouseHandler : MonoBehaviour
     // vertical rotation speed
     public float verticalSpeed = 1f;
     public bool movementEnabled = false;
-    public float MovementSpeed = 1;
+    public float MovementSpeed = 2;
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
     private Camera cam = null;
