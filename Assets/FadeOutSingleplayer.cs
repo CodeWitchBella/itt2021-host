@@ -12,7 +12,6 @@ public class FadeOutSingleplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 3;
         alpha = 0.0f;
         img = gameObject.GetComponent<RawImage>();
     }
