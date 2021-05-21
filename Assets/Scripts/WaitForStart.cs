@@ -11,6 +11,7 @@ public class WaitForStart : MonoBehaviour
     public string TargetScene = "3 Experience";
     public string Key = "Experience";
     string origText;
+    public int timeRemaining;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class WaitForStart : MonoBehaviour
 
     IEnumerator GetTime()
     {
-        int timeRemaining = -1;
+        timeRemaining = -1;
         try {
             while (true) {
                 UnityWebRequest www = UnityWebRequest.Get("https://projects.iim.cz/itt2/2021/red/timer.php");
