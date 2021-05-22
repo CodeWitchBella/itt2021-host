@@ -7,22 +7,27 @@ public class FadeoutMultiplayer : MonoBehaviour
 {
 
     private RawImage img;
-    private float alpha;
-    private GameObject waitForStart;
+    private WaitForStart waitForStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        alpha = 0.0f;
         img = gameObject.GetComponent<RawImage>();
-        waitForStart = GameObject.Find("WaitForStart");
+        waitForStart = GameObject.Find("WaitForStart").GetComponent<WaitForStart>();
+        gameObject.GetComponent<RawImage>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
     }
+
+    float timeRemaining;
 
     // Update is called once per frame
     void Update()
     {
-        if (waitForStart.GetComponent<WaitForStart>().timeRemaining < 91) {
-            alpha += (Time.deltaTime / 90.0f);
+        var tr = waitForStart.timeRemaining;
+        timeRemaining -= Time.deltaTime;
+        if (tr - timeRemaining > 1 || tr - timeRemaining < -1) timeRemaining = tr;
+        float alpha = 1f - timeRemaining / 90f;
+        if (alpha < 0) alpha = 0;
+        if (alpha < 1) {
             gameObject.GetComponent<RawImage>().color = new Color(0.0f, 0.0f, 0.0f, alpha);
         }
     }

@@ -77,8 +77,8 @@ public class WaitForStart : MonoBehaviour
             textMesh.SetText(origText + "Time remaining: " + timeRemaining + " second" + (timeRemaining > 1 ? "s" : ""));
             return;
         }
+        timeRemaining /= 60;
         if (timeRemaining < 60) {
-            timeRemaining /= 60;
             textMesh.SetText(origText + "Time remaining: " + timeRemaining + " minute" + (timeRemaining > 1 ? "s" : ""));
             return;
         }
