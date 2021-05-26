@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c6d6551ef07d5408617a9e072505d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToFade: -1
+  timePassed: 0
 --- !u!114 &192715010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,52 +303,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &913219418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913219420}
-  - component: {fileID: 913219419}
-  m_Layer: 0
-  m_Name: WaitForStart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &913219419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913219418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1edd48c8a44ca7d42a7cdf81d7559c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetScene: 5 Credits
-  Key: Credits
-  timeRemaining: 0
---- !u!4 &913219420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913219418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.010668, y: 0.4280043, z: -16.024054}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &969837797
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +463,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281095498
 GameObject:
@@ -634,7 +590,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314139049
 GameObject:
@@ -812,6 +768,8 @@ GameObject:
   - component: {fileID: 1692401008}
   - component: {fileID: 1692401007}
   - component: {fileID: 1692401010}
+  - component: {fileID: 1692401011}
+  - component: {fileID: 1692401012}
   m_Layer: 0
   m_Name: Realtime + Hoverbird Player
   m_TagString: Untagged
@@ -880,6 +838,44 @@ MonoBehaviour:
     head: {fileID: 0}
     leftHand: {fileID: 0}
     rightHand: {fileID: 0}
+--- !u!114 &1692401011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692401006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730ce067ea628ed4f800a0873f807298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetScene: 5 Credits
+  wasConnected: 0
+  startTime: -1
+  modelEndTime: -1
+--- !u!114 &1692401012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692401006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -363599832, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 0}
+  _sceneViewUUID: 
+  _viewUUID: 32f28f23-adbc-4d5c-8cdd-d545c6835cb6
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 1692401011}
+  _childViews: []
 --- !u!1 &1926759628
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +969,7 @@ RectTransform:
   m_Children:
   - {fileID: 192715008}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1005,6 +1001,8 @@ GameObject:
   - component: {fileID: 4218520497929677085}
   - component: {fileID: 4255329837411507131}
   - component: {fileID: 4254840327486537901}
+  - component: {fileID: 4223998776075132446}
+  - component: {fileID: 4223998776075132447}
   m_Layer: 0
   m_Name: Realtime + VR Player
   m_TagString: Untagged
@@ -1012,6 +1010,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4223998776075132446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223998776075132445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730ce067ea628ed4f800a0873f807298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetScene: 5 Credits
+  wasConnected: 0
+  startTime: -1
+  modelEndTime: -1
+--- !u!114 &4223998776075132447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223998776075132445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -363599832, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 0}
+  _sceneViewUUID: 
+  _viewUUID: 671f2d7e-9661-42f4-bc86-89c66f2888aa
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 4223998776075132446}
+  _childViews: []
 --- !u!114 &4254840327486537901
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VREnabled: 1
-  TargetScene: Scene 2
+  TargetScene: 3 Experience
 --- !u!4 &265394777
 Transform:
   m_ObjectHideFlags: 0
