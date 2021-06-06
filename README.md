@@ -1,8 +1,10 @@
 # Guest
 
-[Project website](https://projects.iim.cz/itt2/2021/red/index.php) (in czech, contains roughly the same info as this file)
+With the help of VR, the viewer finds themselves in a seemingly deserted forest. What causes the presence of an element in an environment where it does not belong?
 
-With the help of VR, the viewer finds themselves in a seemingly deserted forest. What causes the presence of an element in an environment where it does not belong? 
+![First person view from the experience](preview.png)
+
+[Project website](https://projects.iim.cz/itt2/2021/red/index.php) (in czech, contains roughly the same info as this file)
 
 ## Longer description
 
@@ -21,7 +23,7 @@ Before starting the viewer downloads a file which they open at a specific time. 
 - Unzip the zip file to any folder (right-click, Extract all ..., Extract)
 - Double-click the ITT_Host.exe program from the extracted folder
 - On the next screen, select desktop or VR mode by pressing D for Desktop or V for VR.
-- In desktop mode, the application is controlled using the mouse and WASD keys. 
+- In desktop mode, the application is controlled using the mouse and WASD keys.
 
 ### MacOS
 
@@ -56,4 +58,4 @@ We also used the [Perception Neuron](https://neuronmocap.com/) motion capture sy
 - Interpretation: Adéla Kašparová
 - Scenography and modeling: Dominika Mrkvová, Lea Baniariová, Sofie Gjuričová
 - Technical realization: [Isabella Skořepová](https://isbl.cz/), Viktor Bobůrka
-- Sound design: Tomáš Formánek 
+- Sound design: Tomáš Formánek
