@@ -14,6 +14,7 @@ Before starting the viewer downloads a file which they open at a specific time. 
 
 - Computer with Windows, MacOS or Linux
 - Alternatively to connect using VR you need SteamVR and Windows. Only tested with HTC Vive
+- Alternatively you can use the Quest standalone headset. Only tested with Quest 2
 
 ## Startup instructions
 
@@ -39,6 +40,13 @@ Before starting the viewer downloads a file which they open at a specific time. 
 - Extract the archive
 - Run Host.x86_64
 - The application is controlled using the mouse and WASD keys
+
+### Quest 2
+
+- Setup [SideQuest](https://sidequestvr.com/)
+- Download the app from [releases tab](https://github.com/CodeWitchBella/itt2021-host/releases) (ends in `-quest.apk`)
+- Install the apk using SideQuest
+- Run the app from "Untrusted Sources" category
 
 ## Application architecture
 
