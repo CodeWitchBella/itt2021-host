@@ -26,17 +26,23 @@ public class ScenePicker : MonoBehaviour
 
     public IEnumerator WaitForSelection()
     {
-        Debug.Log("Press V to load into VR, or D to load into desktop mode");
-        bool v = false;
-        bool canHaveVR = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor;
-        bool d = !canHaveVR;
-        while (!d && !v) {
-            v = Keyboard.current.vKey.isPressed;
-            d = Keyboard.current.dKey.isPressed;
-            yield return null;
+        if (Application.platform == RuntimePlatform.Android) {
+            // oculus quest
+            VREnabled = true;
+        } else {
+            // desktop
+            Debug.Log("Press V to load into VR, or D to load into desktop mode");
+            bool v = false;
+            bool canHaveVR = Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor;
+            bool d = !canHaveVR;
+            while (!d && !v) {
+                v = Keyboard.current.vKey.isPressed;
+                d = Keyboard.current.dKey.isPressed;
+                yield return null;
+            }
+            Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
+            VREnabled = v;
         }
-        Debug.Log("V: " + (v ? "Yes" : "No") + " D: " + (d ? "Yes" : "No"));
-        VREnabled = v;
 
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(TargetScene, LoadSceneMode.Single);
